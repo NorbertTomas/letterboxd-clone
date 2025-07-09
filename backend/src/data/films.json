@@ -1,0 +1,45 @@
+{
+    "films": [
+      {
+        "title": "Inception",
+        "year": 2010,
+        "director": "Christopher Nolan",
+        "genre": ["Sci-Fi", "Action"],
+        "durationMinutes": 148,
+        "rating": 8.8
+      },
+      {
+        "title": "The Godfather",
+        "year": 1972,
+        "director": "Francis Ford Coppola",
+        "genre": ["Crime", "Drama"],
+        "durationMinutes": 175,
+        "rating": 9.2
+      },
+      {
+        "title": "Parasite",
+        "year": 2019,
+        "director": "Bong Joon-ho",
+        "genre": ["Thriller", "Drama"],
+        "durationMinutes": 132,
+        "rating": 8.6
+      },
+      {
+        "title": "The Matrix",
+        "year": 1999,
+        "director": "The Wachowskis",
+        "genre": ["Sci-Fi", "Action"],
+        "durationMinutes": 136,
+        "rating": 8.7
+      },
+      {
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "director": "Quentin Tarantino",
+        "genre": ["Crime", "Drama"],
+        "durationMinutes": 154,
+        "rating": 8.9
+      }
+    ]
+  }
+  
