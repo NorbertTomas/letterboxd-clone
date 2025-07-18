@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.film-list {
+  display: flex;
+  flex-wrap: wrap;      /* allows cards to wrap to next line if needed */
+  gap: 16px;            /* space between cards */
+  justify-content: flex-start; /* align cards at the start */
+}
