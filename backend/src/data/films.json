@@ -38,7 +38,7 @@
       "genre": ["Sci-Fi", "Action"],
       "durationMinutes": 136,
       "rating": 8.7,
-      "image": "theMatrix.jpg"
+      "image": "theMatrix.png"
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "genre": ["Crime", "Drama"],
       "durationMinutes": 154,
       "rating": 8.9,
-      "image": "pulpFiction.png"
+      "image": "pulpFiction.jpg"
     }
   ]
 }

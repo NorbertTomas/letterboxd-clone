@@ -20,9 +20,7 @@ export function FilmCard({ film }: Props) {
           <span key={i} className="genre-badge">{g}</span>
         ))}
       </div>
-      <div className="film-card">
         <img src={`http://localhost:3000/images/${film.image}`} alt={film.title} />
-      </div>
     </div>
   );
 }

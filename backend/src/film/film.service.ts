@@ -16,7 +16,7 @@ export class FilmService {
   }
 
   getFilms(): Film[] {
-    const films = this.films.slice(0, 3);
+    const films = this.films.slice(0, 5);
 
     if (!films) {
       throw new NotFoundException(`Films not found`);

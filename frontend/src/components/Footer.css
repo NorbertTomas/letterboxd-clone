@@ -1,0 +1,14 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #14181c;
+    color: white;
+    display: flex;
+}
+
+.info {
+    margin-left: 15%;
+}
