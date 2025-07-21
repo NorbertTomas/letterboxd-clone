@@ -7,8 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #14181c;
-  color: #b3b3b3;
+  background-color: #14191d;
   padding: 10px 20px;
   font-family: sans-serif;
 }
@@ -29,18 +28,54 @@
   align-items: center;
   gap: 15px;
   font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
+
 .nav a {
-  color: #b3b3b3;
+  color: #98aaba;
   text-decoration: none;
 }
 
 .user-menu {
-  display: flex;
+  display: inline-block; /*Allows the dropdown to sit inline (like text or icons) but still act like a block (can contain width/height, padding, etc.)*/
+  position: relative; /*Makes this container the reference point for absolutely positioned children (like .dropdown-menu)*/
   align-items: center;
   gap: 4px;
   text-transform: uppercase;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none; /*Initially hidden*/
+  flex-direction: column;
+  position: absolute; /*Positions the menu relative to the nearest ancestor with position: relative*/
+  top: 100%; 
+  left: 0; /*Aligns the dropdown to the left of the .dropdown*/
+  background-color: #8998aa;
+  min-width: 120px;
+  padding: 8px 0;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.user-menu:hover .dropdown-menu { /*Activates when the user hovers over .dropdown and targets the menu inside the hovered .dropdown.*/
+  display: flex; /*Flex makes the menu visible (overrides display: none) and enables flex-direction: column*/
+}
+
+.dropdown-menu a:hover {
+  background-color: #617180;
+  cursor: pointer; 
+}
+
+.dropdown-menu a {
+  padding: 10px 16px;
+  text-decoration: none; /*Removes underline from links*/
+  color: #3b3645;
 }
 
 .avatar {
@@ -77,5 +112,5 @@
 }
 
 .flash-icon {
-  color: white;
+  color: 98aaba;
 }

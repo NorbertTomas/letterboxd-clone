@@ -1,0 +1,44 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "userName": "film_buff21",
+            "userFilmsId": [1, 2, 3],
+            "filmsYear": 2024,
+            "following": 120,
+            "followers": 430
+        },
+        {
+            "id": 2,
+            "userName": "cinemaddict",
+            "userFilmsId": [1, 2],
+            "filmsYear": 2023,
+            "following": 85,
+            "followers": 510
+        },
+        {
+            "id": 3,
+            "userName": "indieQueen",
+            "userFilmsId": [3],
+            "filmsYear": 2025,
+            "following": 200,
+            "followers": 620
+        },
+        {
+            "id": 4,
+            "userName": "reelcritic",
+            "userFilmsId": [1, 2, 3, 4, 5],
+            "filmsYear": 2022,
+            "following": 76,
+            "followers": 312
+        },
+        {
+            "id": 5,
+            "userName": "noirfanatic",
+            "userFilmsId": [2, 3],
+            "filmsYear": 2025,
+            "following": 33,
+            "followers": 150
+        }
+    ]
+}

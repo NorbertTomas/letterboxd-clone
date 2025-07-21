@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 import { FilmModule } from 'src/film/film.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { UserModule } from 'src/user/user.module';
 
 @Module({
   imports: [
     FilmModule,
+    UserModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),

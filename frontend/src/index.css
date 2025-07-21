@@ -1,11 +1,12 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, GraphikWeb, -apple-system, BlinkMacSystemFont, Segoe UI, Hiragino Sans, Meiryo, sans-serif, ColorEmoji;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 200;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #9ab;
+  background-color: #1f252d;
+  letter-spacing: .07692308em;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

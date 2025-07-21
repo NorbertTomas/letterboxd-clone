@@ -1,0 +1,7 @@
+.user-info {
+    display: flex;
+}
+
+.user-info a {
+    padding: 10px;
+}
