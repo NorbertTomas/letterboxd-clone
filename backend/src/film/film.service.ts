@@ -1,13 +1,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import filmsData from '../data/films.json';
-import { Film } from '../types/Film';
+import { DatabaseService } from '../database/database.service';
+//import filmsData from '../data/films.json';
+import { film } from '@prisma/client';
 
 @Injectable()
 export class FilmService {
-  private films: Film[] = filmsData.films;
+  constructor(private readonly databaseService: DatabaseService) {}
+  //private films: Film[] = filmsData.films;
 
-  getFilm(id: number): Film {
-    const desiredFilm = this.films.find((film) => film.id === id);
+  async getFilm(id: number): Promise<film> {
+    const desiredFilm = await this.databaseService.film.findUnique({
+      where: { id },
+    });
 
     if (!desiredFilm) {
       throw new NotFoundException(`Film with id ${id} not found`);
@@ -15,6 +19,7 @@ export class FilmService {
     return desiredFilm;
   }
 
+  /*
   getFilms(): Film[] {
     const films = this.films.slice(0, 5);
 
@@ -23,4 +28,5 @@ export class FilmService {
     }
     return films;
   }
+    */
 }

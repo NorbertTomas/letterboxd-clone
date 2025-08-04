@@ -5,9 +5,11 @@ import { FilmModule } from 'src/film/film.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { UserModule } from 'src/user/user.module';
+import { DatabaseModule } from 'src/database/database.module';
 
 @Module({
   imports: [
+    DatabaseModule,
     FilmModule,
     UserModule,
     ServeStaticModule.forRoot({
