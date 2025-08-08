@@ -13,7 +13,8 @@ import { DatabaseModule } from 'src/database/database.module';
     FilmModule,
     UserModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
+      rootPath: join(__dirname, '..', 'public/images'),
+      serveRoot: '/images',
     }),
   ],
   controllers: [AppController],

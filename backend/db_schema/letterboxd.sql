@@ -26,7 +26,7 @@ CREATE TABLE film (
     title VARCHAR(255) NOT NULL,
     year INT CHECK (year > 1800 AND year <= EXTRACT(YEAR FROM CURRENT_DATE)),
     director VARCHAR(255),
-    genre VARCHAR(100),
+    genre TEXT[],
     durationMinutes INT CHECK (durationMinutes > 0),
     rating DECIMAL(2, 1) CHECK (rating >= 0 AND rating <= 10),
     image VARCHAR(255)
