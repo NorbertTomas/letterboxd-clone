@@ -19,7 +19,7 @@ export class FilmService {
 
   async getFilms(): Promise<film[]> {
     const films = await this.databaseService.film.findMany({
-      take: 5, 
+      take: 5,
     });
 
     if (!films) {

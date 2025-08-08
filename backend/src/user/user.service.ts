@@ -15,4 +15,8 @@ export class UserService {
     //}
     return user;
   }
+
+  findUserByName(username: string): User | undefined {
+    return this.users.find((user) => user.userName === username);
+  }
 }
