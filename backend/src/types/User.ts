@@ -7,3 +7,11 @@ export type User = {
   following: number;
   followers: number;
 };
+
+export type CreateUserDto = {
+  username: string;
+  password: string;
+  email: string;
+  firstName?: string;
+  lastName?: string;
+};

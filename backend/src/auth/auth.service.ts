@@ -1,6 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
+import { comparePassword } from 'src/utils/bcrypt';
 
 type AuthInput = { username: string; password: string };
 type SignInData = { userId: number; username: string };
@@ -14,7 +15,7 @@ export class AuthService {
   ) {}
 
   async authenticate(input: AuthInput): Promise<AuthResult | null> {
-    const user = this.validateUser(input);
+    const user = await this.validateUser(input);
 
     if (!user) {
       throw new UnauthorizedException();
@@ -23,14 +24,21 @@ export class AuthService {
     return this.signIn(user);
   }
 
-  validateUser(input: AuthInput): SignInData | null {
-    const user = this.userService.findUserByName(input.username);
+  async validateUser(input: AuthInput): Promise<SignInData | null> {
+    const user = await this.userService.findUserByName(input.username);
 
-    if (user && user.password === input.password) {
-      return {
-        userId: user.id,
-        username: user.userName,
-      };
+    if (user) {
+      const matched = await comparePassword(input.password, user.password);
+
+      if (matched) {
+        return {
+          userId: user.id,
+          username: user.username,
+        };
+      } else {
+        console.log(`Invalid password for user: ${input.username}`);
+        return null;
+      }
     }
     return null;
   }
