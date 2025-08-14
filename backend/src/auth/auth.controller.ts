@@ -21,8 +21,8 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
-  login(@Body() input: { username: string; password: string }) {
-    return this.authService.authenticate(input);
+  async login(@Body() input: { username: string; password: string }) {
+    return await this.authService.authenticate(input);
   }
 
   @UseGuards(AuthGuard)

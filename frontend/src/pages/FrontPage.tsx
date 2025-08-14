@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { FilmCard } from '../components/FilmCard';
 import type { Film } from '../../../backend/src/types/Film';
 import { Footer } from '../components/Footer';
+import './FrontPage.css';
 
 export function FrontPage(){
     const [films, setFilms] = useState<Film[]>([]); // First pos value, second pos func to update the state
@@ -20,11 +21,11 @@ export function FrontPage(){
         <div>
             <Header />
             <div className="film-list">
-            {films.map((film) => (
-                <FilmCard key={film.id} film={film} />
-            ))}
-            <Footer />
+                {films.map((film) => (
+                    <FilmCard key={film.id} film={film} />
+                ))}
             </div>
+            <Footer />
         </div>
     );
 }
