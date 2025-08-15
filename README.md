@@ -1,4 +1,4 @@
-# Letterboxd Clone
+# Letterboxd Clone ![alt text](https://github.com/NorbertTomas/letterboxd-clone/blob/development/frontend/public/letterboxd.svg "Logo Title Text 1")
 
 This project is a fan-made replication of the Letterboxd platform (https://letterboxd.com/) built purely as a software development exercise and learning tool.
 
@@ -12,3 +12,4 @@ I do not own any logos, images, or intellectual property belonging to Letterboxd
 - Documentation: Planned to be implemented using the Docusaurus framework (coming soon).
 
 Each part of the project has its own folder containing detailed README files with instructions on setup and deployment.
+
