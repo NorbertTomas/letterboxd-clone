@@ -29,7 +29,7 @@ export function Header() {
                 <div className='user-menu'>
                     <div className='dropdown-trigger'>
                         <img src={avatar} alt='user' className='avatar'></img>
-                        <span className='username'> acuuustic</span>
+                        <span className='username'> {user.username}</span>
                         <ChevronDown className="icon-sm" />
                     </div>
                     <div className="dropdown-menu">

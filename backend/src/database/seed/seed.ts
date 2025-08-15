@@ -10,6 +10,29 @@ const filmData = [
   { title: 'Parasite', image: 'parasite.png' },
   { title: 'The Matrix', image: 'theMatrix.png' },
   { title: 'Pulp Fiction', image: 'pulpFiction.jpg' },
+  { title: 'The Shawshank Redemption', image: 'shawshankRedemption.jpg' },
+  { title: 'The Dark Knight', image: 'theDarkKnight.jpg' },
+  { title: 'Fight Club', image: 'fightClub.jpg' },
+  { title: 'Forrest Gump', image: 'forrestGump.jpg' },
+  { title: 'Interstellar', image: 'interstellar.jpg' },
+  { title: 'Gladiator', image: 'gladiator.png' },
+  {
+    title: 'The Lord of the Rings: The Fellowship of the Ring',
+    image: 'lotrFellowship.jpg',
+  },
+  {
+    title: 'The Lord of the Rings: The Two Towers',
+    image: 'lotrTwoTowers.jpg',
+  },
+  {
+    title: 'The Lord of the Rings: The Return of the King',
+    image: 'lotrReturnKing.jpg',
+  },
+  { title: 'Titanic', image: 'titanic.jpg' },
+  { title: 'The Silence of the Lambs', image: 'silenceOfTheLambs.jpg' },
+  { title: 'Saving Private Ryan', image: 'savingPrivateRyan.jpg' },
+  { title: 'Whiplash', image: 'whiplash.jpg' },
+  { title: 'La La Land', image: 'laLaLand.jpg' },
 ];
 
 const users = [
@@ -29,7 +52,17 @@ function getRandomGenres() {
   return shuffled.slice(0, count);
 }
 
+async function clearDatabase() {
+  await prisma.film_ratings.deleteMany();
+  await prisma.film.deleteMany();
+  await prisma.users.deleteMany();
+
+  await prisma.$executeRaw`TRUNCATE TABLE "film_ratings", "film", "users" RESTART IDENTITY CASCADE;`;
+}
+
 async function main() {
+  await clearDatabase();
+
   for (let i = 0; i < filmData.length; i++) {
     await prisma.film.create({
       data: {
@@ -51,6 +84,32 @@ async function main() {
         password: await users[i].password,
       },
     });
+  }
+
+  const allFilms = await prisma.film.findMany({ select: { id: true } });
+  const allUsers = await prisma.users.findMany({ select: { id: true } });
+
+  for (const user of allUsers) {
+    const numberOfFilmsToRate = faker.number.int({
+      min: 3,
+      max: allFilms.length,
+    });
+    const filmsToRate = faker.helpers
+      .shuffle(allFilms)
+      .slice(0, numberOfFilmsToRate);
+
+    for (const film of filmsToRate) {
+      await prisma.film_ratings.create({
+        data: {
+          user_id: user.id,
+          film_id: film.id,
+          rating: parseFloat(
+            faker.number.float({ min: 0, max: 10 }).toFixed(1),
+          ),
+          rated_at: faker.date.past({ years: 1 }),
+        },
+      });
+    }
   }
 }
 

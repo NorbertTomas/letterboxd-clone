@@ -1,6 +1,13 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  UseGuards,
+} from '@nestjs/common';
 import { FilmService } from './film.service';
 import { film } from '@prisma/client';
+import { AuthGuard } from 'src/auth/guards/auth.guard';
 
 @Controller('film')
 export class FilmController {
@@ -13,6 +20,6 @@ export class FilmController {
 
   @Get()
   getFilms(): Promise<film[]> {
-    return this.filmService.getFilms();
+    return this.filmService.getRandomFilms(5);
   }
 }

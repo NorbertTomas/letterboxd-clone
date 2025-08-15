@@ -17,14 +17,29 @@ export class FilmService {
     return desiredFilm;
   }
 
-  async getFilms(): Promise<film[]> {
+  async getRandomFilms(limit: number): Promise<film[]> {
     const films = await this.databaseService.film.findMany({
-      take: 5,
+      take: limit,
     });
 
     if (!films) {
       throw new NotFoundException(`Films not found`);
     }
     return films;
+  }
+
+  async getRatedFilmsByUser(userId: number, limit: number): Promise<film[]> {
+    const ratings = await this.databaseService.film_ratings.findMany({
+      where: { user_id: userId },
+      take: limit,
+      include: {
+        film: true,
+      },
+    });
+
+    return ratings.map((rating) => ({
+      ...rating.film,
+      userRating: rating.rating,
+    }));
   }
 }
